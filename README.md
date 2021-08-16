@@ -18,6 +18,9 @@ chicago.csv
 new_york_city.csv
 washington.csv
 
+### Notes
+Washington does not have gender counts, so this data cannot be displayed.
+
 ### Credits
 This project started with a fork from https://github.com/udacity/pdsnd_github
 
