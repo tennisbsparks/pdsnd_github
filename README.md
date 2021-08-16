@@ -13,7 +13,10 @@ most common month, day, common start hour, most popular stations, most popular s
 most common combinations of start and end stations, average trip duration, and user stats for some cities.
 
 ### Files used
-Include the files used
+The files used for this project are:
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
 This project started with a fork from https://github.com/udacity/pdsnd_github
