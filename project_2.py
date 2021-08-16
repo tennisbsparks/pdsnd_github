@@ -39,7 +39,8 @@ def get_filters():
         print("Invalid input")
         time_selection = input('\n\nWould you like to filter {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
 
-    # call two different functions to handle time_choice -- get_month, get_day, and use both functions for all
+    # call two different functions to handle time_choice -- get_month, get_day
+    # use these functions for all calls
     if time_selection == 'none':
         month, day = 'all', 'all'
     elif time_selection == 'month':
