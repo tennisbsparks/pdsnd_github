@@ -16,11 +16,11 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('Hello! Let\'s explore some US bikeshare data for Chicago, New York City, or Washington!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     # Since the cities have different first letters, have the user enter the first letter of the city to reduce input errors
     city_selection = input(str("Please choose a city, \n1: Chicago (enter 1)\n2: New York City (enter 2) \n3: Washington D.C.(enter 3)\n "))
-    
+
     while city_selection not in {"1", "2", "3"}:
         print("Check your input - You must choose 1, 2, or 3")
         city_selection = input(str("Please choose a city, \n1: Chicago (enter 1)\n2: New York City (enter 2) \n3: Washington D.C.(enter 3)\n "))
@@ -31,14 +31,14 @@ def get_filters():
         city = 'new york city'
     elif city_selection == "3":
         city = 'washington'
-        
+
     # ask the user if want to analyze by month or date or both or not at all
     time_selection = input('\n\nWould you like to analyze {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
-    
+
     while time_selection not in {'month','day','both','none'}:
         print("Invalid input")
         time_selection = input('\n\nWould you like to filter {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
-   
+
     # call two different functions to handle time_choice -- get_month, get_day, and use both functions for all
     if time_selection == 'none':
         month, day = 'all', 'all'
@@ -54,15 +54,15 @@ def get_filters():
 
     print('-'*40)
     return city, month, day
-    
-# define function that gets the month -- call function get_month 
+
+# define function that gets the month -- call function get_month
 def get_month():
     """
     Asks user to specify a month to analyze.
 
     Returns:
         (str) month - name of the month to filter by
-        
+
     """
     print("\nThe months of data available are January to June\n")
     month = input("Please enter a value from 1 to 6 to specify the month. i.e. For January enter 1. \n ")
@@ -80,7 +80,7 @@ def get_day():
 
     Returns:
         (str) day - name of the day to filter by
-        
+
     """
     print("There are seven days in a week. Sunday is 1, Monday is 2, etc.\n")
     day = input("Please enter a value from 1 to 7 for the day of the week beginning with Sunday. \n Sunday is 1, Monday is 2, Tuesday is 3... \n ")
@@ -89,8 +89,8 @@ def get_day():
         print("Invalid Input - You must enter a number from 1 to 7 for the day of the week.")
         day = input("Please enter a value from 1 to 7 for the day of the week, \n Sunday is 1, Monday is 2, Tuesday is 3... \n ")
 
-    return day        
-    
+    return day
+
 
 def load_data(city, month, day):
     """
@@ -113,12 +113,12 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
     df['hour'] = df['Start Time'].dt.hour
-    
-    
+
+
 
     # filter by month if applicable
     if month != 'all':
-        
+
 
         # filter by month to create the new dataframe
         df = df[df['month'] == int(month)]
@@ -142,15 +142,15 @@ def time_stats(df):
 
     # display the most common month
     print('\nMost Common Month: ' + str(df['month'].mode()[0]))
-    
+
 
     # display the most common day of week
     print('\nMost Common Day of Week: ' + str(df['day_of_week'].mode()[0]))
-    
+
 
     # display the most common start hour
     print('\nMost Common Start hour: ' + str(df['hour'].mode()[0]))
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -170,7 +170,7 @@ def station_stats(df):
 
     # display most frequent combination of start station and end station trip
     print('\nMost Frequent Combination of Start and End Station Trip: ' + str(df.groupby(['Start Station','End Station']).size().idxmax()))
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -216,7 +216,7 @@ def user_stats(df,city):
 
 def show_data(city):
     """
-    Asks the user if they want to see 5 rows of data 
+    Asks the user if they want to see 5 rows of data
     if yes then it prints 5 rows and then asks the user again
     """
     show_raw_5 = input("Would you like to see 5 rows of raw data? \n Type: yes or no \n ").lower()
@@ -238,8 +238,8 @@ def show_data(city):
             show5 = input("Would you like to see 5 more rows of data? \n Type: yes or no \n ").lower()
 
         if show5 == 'no':
-            break    
-        
+            break
+
 def main():
     while True:
         city, month, day = get_filters()
