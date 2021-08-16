@@ -16,7 +16,8 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('Hello! Let\'s explore some US bikeshare data for Chicago, New York City, or Washington!')
+    # Data is only available for Chicago, New York City, or Washington
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     # Since the cities have different first letters, have the user enter the first letter of the city to reduce input errors
     city_selection = input(str("Please choose a city, \n1: Chicago (enter 1)\n2: New York City (enter 2) \n3: Washington D.C.(enter 3)\n "))
@@ -31,16 +32,32 @@ def get_filters():
         city = 'new york city'
     elif city_selection == "3":
         city = 'washington'
+<<<<<<< HEAD
 
     # ask the user if want to analyze by month or date or both or neither month nor date
+||||||| e0d4786
+        
+    # ask the user if want to analyze by month or date or both or not at all
+=======
+
+    # ask the user if want to analyze by month or date or both or not at all
+>>>>>>> documentation
     time_selection = input('\n\nWould you like to analyze {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
 
     while time_selection not in {'month','day','both','none'}:
         print("Invalid input")
         time_selection = input('\n\nWould you like to filter {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
+<<<<<<< HEAD
 
     # call two different functions to handle time_choice -- get_month, get_day
     # use these functions for all calls
+||||||| e0d4786
+   
+    # call two different functions to handle time_choice -- get_month, get_day, and use both functions for all
+=======
+
+    # call two different functions to handle time_choice -- get_month, get_day, and use both functions for all
+>>>>>>> documentation
     if time_selection == 'none':
         month, day = 'all', 'all'
     elif time_selection == 'month':
