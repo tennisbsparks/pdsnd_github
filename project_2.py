@@ -32,7 +32,7 @@ def get_filters():
     elif city_selection == "3":
         city = 'washington'
 
-    # ask the user if want to analyze by month or date or both or not at all
+    # ask the user if want to analyze by month or date or both or neither month nor date
     time_selection = input('\n\nWould you like to analyze {}\'s data by month, day, both, or none? \nType month or day or both or none: \n '.format(city.title())).lower()
 
     while time_selection not in {'month','day','both','none'}:
